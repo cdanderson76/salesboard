@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 730px;
+  height: 750px;
+  border: 2px solid black;
+  background-color: #201a23;
+}
+
+.app-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 46px;
+}
+
+img.profile-pic {
+  display: block;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-top: 16px;
+  border: 5px solid #44354A;
+}
+
+.btn-container {
+  margin: 25px 5px 34px 0;
+}
+
+.sales-btn {
+  width: 130px;
+  height: 55px;
+  border-radius: 10px;
+  background-color: #9E4770;
+  border: none;
+  margin-left: 5px;
+  font-size: 26px;
+}
+
+.live-container {
+  font-size: 23px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.live-container div {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  height: 45px;
+  font-size: 25px;
+  background-color: #44354A;
+  border-radius: 50px;
+}
+
+.live-container:nth-child(odd) {
+  margin-top: 41px;
+}
+
+.tracker {
+  padding: 0 21px 0 21px;
+  letter-spacing: -6px;
+}
