@@ -19,6 +19,7 @@ img {
   height: 100vh;
   font-family: "Poppins", sans-serif;
   color: #fff;
+  background-image: linear-gradient(to right top, #9e4770, #a4557a, #a96383, #ae708d, #b37d96, #aa7990, #a0768a, #977284, #7f5d6d, #674958, #513643, #3b242f);
 }
 
 #container {
