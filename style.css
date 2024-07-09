@@ -72,10 +72,13 @@ img.profile-pic {
   display: flex;
   align-items: center;
   width: 600px;
-  height: 45px;
+  min-height: 45px;
+  max-height: 100px;
   font-size: 25px;
   background-color: #44354A;
   border-radius: 50px;
+  overflow-y: auto;
+  padding-top: 10px 0 10px 0;
 }
 
 .live-container:nth-child(odd) {

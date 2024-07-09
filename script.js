@@ -1,3 +1,5 @@
+import { productA, productB } from "./data.js";
+
 const starBtn = document.getElementById('star-btn');
 const fireBtn = document.getElementById('fire-btn');
 
@@ -16,111 +18,57 @@ const liveAchievements = document.getElementById('live-achievements');
 const revenue = document.getElementById('revenue');
 const commission = document.getElementById('commission');
 
-let liveSalesNumber = 0;
-let totalCommission = 0;
-let totalRevenue = 0;
+// Variables for Incrementing
+
+    let emojiSalesNumber = 0;
+    let totalCommission = 0;
+    let totalRevenue = 0;
 
 
-// Star Button Event
+// Event Listeners for Buttons
 
-starBtn.addEventListener('click', function() {
+starBtn.addEventListener('click', () => { initiateSales(productA);});
+fireBtn.addEventListener('click', () => { initiateSales(productB);});
 
-    // Product A info
 
-    let productA = {
-      emoji: "⭐",
-      revenue: 200,
-      commission: 50
-    }
+function initiateSales(obj) {
 
-    salesTracker.textContent += `${productA.emoji}`;
-    liveSalesNumber++;
-    liveSalesCount.textContent = liveSalesNumber;
+    salesTracker.textContent += `${obj.emoji}`;
+    emojiSalesNumber++;
+    liveSalesCount.textContent = emojiSalesNumber;
+    console.log(emojiSalesNumber);
 
     // Total Commission
 
-    totalCommission += productA.commission;
+    totalCommission += obj.commission;
     commission.textContent = `$${totalCommission}`;
 
     // Total Revenue
 
-    totalRevenue += productA.revenue;
+    totalRevenue += obj.revenue;
     revenue.textContent = `$${totalRevenue}`;
-    
 
-    if( liveSalesNumber === 20 ) {
+    if( emojiSalesNumber === 38 ) {
         starBtn.disabled = true;
         fireBtn.disabled = true;
     }
 
-    if ( liveSalesNumber === 1 ) {
-      liveAchievements.textContent += '🔔';
-      liveAchievementsCount.textContent++; 
+    if ( emojiSalesNumber === 1 ) {
+        liveAchievements.textContent = '🔔';
+        liveAchievementsCount.textContent++; 
     } 
     
-    if ( liveSalesNumber === 15 ) {
-      liveAchievements.textContent += '🏆';
-      liveAchievementsCount.textContent++;
+    if ( emojiSalesNumber === 15 ) {
+        liveAchievements.textContent += '🏆';
+        liveAchievementsCount.textContent++;
     }
 
     if ( totalRevenue >= 2500 ) {
-      if ( !liveAchievements.textContent.includes('💰')) {
-        liveAchievements.textContent += '💰';
-        liveAchievementsCount.textContent++; 
-      }
-      // FIGURE OUT LIVE ACHIEVEMENT FOR 2500
+        if ( !liveAchievements.textContent.includes('💰')) {
+            liveAchievements.textContent += '💰';
+            liveAchievementsCount.textContent++; 
+        }
     }
-})
-
-// Fire Button Event
-
-fireBtn.addEventListener('click', function() {
-
-    // Product B info
-
-    let productB = {
-      emoji: "🔥",
-      revenue: 300,
-      commission: 75
-    }
-
-    salesTracker.textContent += `${productB.emoji}`;
-    liveSalesNumber++;
-    liveSalesCount.textContent = liveSalesNumber;
-
-    // Total Commission
-
-    totalCommission += productB.commission;
-    commission.textContent = `$${totalCommission}`;
-
-    // Total Revenue
-
-    totalRevenue += productB.revenue;
-    revenue.textContent = `$${totalRevenue}`;
-
-    if( liveSalesNumber === 20 ) {
-      starBtn.disabled = true;
-      fireBtn.disabled = true;
-    }
-
-    if ( liveSalesNumber === 1 ) {
-      liveAchievements.textContent += '🔔';
-      liveAchievementsCount.textContent++; 
-    } 
-    
-    if ( liveSalesNumber === 15 ) {
-      liveAchievements.textContent += '🏆';
-      liveAchievementsCount.textContent++;
-    }
-
-    if ( totalRevenue >= 2500 ) {
-      if ( !liveAchievements.textContent.includes('💰')) {
-        liveAchievements.textContent += '💰';
-        liveAchievementsCount.textContent++; 
-      }
-    }
-})
-
-
+}
 
 
