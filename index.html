@@ -17,22 +17,22 @@
         <!-- Sales Buttons -->
 
         <div class="btn-container">
-            <button class="sales-btn">⭐</button>
-            <button class="sales-btn">🔥</button>
+            <button class="sales-btn" id="star-btn">⭐</button>
+            <button class="sales-btn" id="fire-btn">🔥</button>
         </div>
 
         <!-- Live Sales  -->
 
         <div class="live-container">
-            <p>Live Sales - 0<p>
-            <div class="tracker">🔥🔥🔥</div>
+            <p>Live Sales - <span id="live-sales-count">0</span></p>
+            <div class="tracker" id="sales-emojis"></div>
         </div>
 
         <!-- Live Achievements -->
 
         <div class="live-container">
-            <p>Live Achievements - 0<p>
-            <div class="tracker">⭐⭐⭐</div>
+            <p>Live Achievements - <span id="live-achievements-count">0</span></p>
+            <div class="tracker" id="live-achievements"></div>
         </div>
 
         <!-- Revenue and Commision -->
@@ -41,12 +41,12 @@
 
           <div>
             <p class="revenue">Total Revenue</p>
-            <div class="total-tracker">$ 2700</div>
+            <div class="total-tracker"><span id="revenue"></span></div>
           </div>
 
           <div>
             <p class="commission">Total Commission</p>
-            <div class="total-tracker">$ 675</div>
+            <div class="total-tracker"><span id="commission"></span></div>
           </div>
 
         </div>

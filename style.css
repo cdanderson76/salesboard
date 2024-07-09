@@ -56,6 +56,7 @@ img.profile-pic {
   height: 55px;
   border-radius: 10px;
   background-color: #9E4770;
+  transition: 0.7s ease;
   border: none;
   margin-left: 5px;
   font-size: 26px;
@@ -92,7 +93,6 @@ img.profile-pic {
   justify-content: space-around;
   width: 620px;
   height: 170px;
-  /* border: 2px solid white; */
   font-size: 23px;
   font-weight: 600;
   margin-top: 54px;
@@ -106,7 +106,6 @@ img.profile-pic {
   height: 60px;
   background-color: #44354A;
   border-radius: 50px;
-  /* margin-right: 20px; */
 }
 
 .revenue {
@@ -115,4 +114,15 @@ img.profile-pic {
 
 .commission {
   margin: 0 0 5px 42px;
+}
+
+
+.sales-btn:hover,
+.sales-btn:active {
+  cursor: pointer;
+  background-color: #bd7797;
+}
+
+.sales-btn:active {
+  border: 0.5px solid;
 }
