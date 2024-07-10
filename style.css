@@ -77,8 +77,8 @@ img.profile-pic {
   font-size: 25px;
   background-color: #44354A;
   border-radius: 50px;
-  overflow-y: auto;
   padding-top: 10px 0 10px 0;
+  overflow-wrap: anywhere;
 }
 
 .live-container:nth-child(odd) {
