@@ -27,7 +27,8 @@ img {
   align-items: center;
   flex-direction: column;
   width: 730px;
-  height: 780px;
+  min-height: 780px;
+  max-height: auto;
   border: 2px solid black;
   background-color: #201a23;
 }
@@ -73,7 +74,7 @@ img.profile-pic {
   align-items: center;
   width: 600px;
   min-height: 45px;
-  max-height: 100px;
+  max-height: auto;
   font-size: 25px;
   background-color: #44354A;
   border-radius: 50px;
@@ -118,7 +119,6 @@ img.profile-pic {
 .commission {
   margin: 0 0 5px 42px;
 }
-
 
 .sales-btn:hover,
 .sales-btn:active {

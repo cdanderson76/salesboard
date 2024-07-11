@@ -19,19 +19,21 @@ const liveAchievements = document.getElementById('live-achievements');
 const revenue = document.getElementById('revenue');
 const commission = document.getElementById('commission');
 
-// Variables for Incrementing
+// Variables to hold emojis
 
-let emojiSalesNumber = 0;
-let achievementSalesNumber = 0;
+let liveSalesEmojiArr = [];
+let liveAchievmentsEmojiArr = [];
+
+// Variables to assist in calculation of money
+
 let totalCommission = 0;
 let totalRevenue = 0;
-let sales = '';
-let prizes = '';
 
 // Setting visual commission and revenue values
 
 commission.textContent = '$' + 0;
 revenue.textContent = '$'+ 0;
+
 
 
 // Event Listeners for Buttons
@@ -55,8 +57,8 @@ resetBtn.addEventListener('click', function() {
 
     liveAchievementsCount.textContent = 0;
     liveSalesCount.textContent = 0;
-    achievementSalesNumber = 0;
-    emojiSalesNumber = 0;
+    liveSalesEmojiArr = [];
+    liveAchievmentsEmojiArr = [];
     totalCommission = 0;
     totalRevenue = 0;
 });
@@ -64,83 +66,55 @@ resetBtn.addEventListener('click', function() {
 
 function initiateSales(obj) {
 
-    // Get the sales variable to add icons to the string and save it in localStorage
+    // Live Sales Section
 
-    salesTracker.textContent += `${obj.emoji}`;
-    sales = salesTracker.textContent;
+    liveSalesEmojiArr.push(`${obj.emoji}`);
+    salesTracker.textContent = liveSalesEmojiArr.join('');
+    liveSalesCount.textContent = liveSalesEmojiArr.length;
 
-    emojiSalesNumber++;
-    liveSalesCount.textContent = emojiSalesNumber;
-    liveAchievementsCount.textContent = achievementSalesNumber;
-
-    // Total Commission
+    // Total Commission Calculation
 
     totalCommission += obj.commission;
     commission.textContent = `$${totalCommission}`;
 
-    // Total Revenue
+    // Total Revenue Calculation
 
     totalRevenue += obj.revenue;
     revenue.textContent = `$${totalRevenue}`;
-    
 
-    if( emojiSalesNumber === 40 ) {
-        starBtn.disabled = true;
-        fireBtn.disabled = true;
-    }
 
-    if ( emojiSalesNumber === 1 ) {
-        liveAchievements.textContent = '🔔';
-        achievementSalesNumber++
-        liveAchievementsCount.textContent = `${achievementSalesNumber}`;
+    // Conditionals for Various Achievements
+
+    if ( liveSalesEmojiArr.length === 1 ) {
+        liveAchievmentsEmojiArr.push('🔔');
     } 
     
-    if ( emojiSalesNumber === 15 ) {
-        liveAchievements.textContent += '🏆';
-        achievementSalesNumber++
-        liveAchievementsCount.textContent = `${achievementSalesNumber}`;
+    if ( liveSalesEmojiArr.length === 15 ) {
+        liveAchievmentsEmojiArr.push('🏆');
+    }
+
+    if ( liveSalesEmojiArr.length === 20 ) {
+        liveAchievmentsEmojiArr.push('✈️');
     }
 
     if ( totalRevenue >= 2500 ) {
-        if ( !liveAchievements.textContent.includes('💰')) {
-            liveAchievements.textContent += '💰';
-            achievementSalesNumber++
-            liveAchievementsCount.textContent = `${achievementSalesNumber}`; 
+        if ( !liveAchievmentsEmojiArr.includes('💰')) {
+            liveAchievmentsEmojiArr.push('💰');
         }
     }
 
-    // Get the sales variable to add icons to the string and save it in localStorage
+    if ( totalRevenue >= 5000 ) {
+        if ( !liveAchievmentsEmojiArr.includes('💵')) {
+            liveAchievmentsEmojiArr.push('💵')
+        }
+    }
 
-    prizes = liveAchievements.textContent;
+    if ( liveSalesEmojiArr.length === 30 ) {
+        liveAchievmentsEmojiArr.push('🐐');
+    }
 
-    localStorage.setItem('emojiSalesNumber', JSON.stringify(emojiSalesNumber));
-    localStorage.setItem('liveAchievementsCount', JSON.stringify(achievementSalesNumber))
-    localStorage.setItem('totalCommission', JSON.stringify(totalCommission));
-    localStorage.setItem('totalRevenue', JSON.stringify(totalRevenue));
-    localStorage.setItem('salesTracker', sales);
-    localStorage.setItem('liveAchievements', prizes);
+    // Live Achievements Section
+
+    liveAchievementsCount.textContent = liveAchievmentsEmojiArr.length;
+    liveAchievements.textContent = liveAchievmentsEmojiArr.join('');
 }
-
-
-// Retrieve stored data if data is present
-
-if( localStorage.length !== 0 ) {
-    liveSalesCount.textContent = localStorage.getItem('emojiSalesNumber');
-    liveAchievementsCount.textContent = localStorage.getItem('liveAchievementsCount');
-    commission.textContent = `$${localStorage.getItem('totalCommission')}`;
-    revenue.textContent = `$${localStorage.getItem('totalRevenue')}`;
-    salesTracker.textContent += localStorage.getItem('salesTracker');
-    liveAchievements.textContent += localStorage.getItem('liveAchievements');
-}
-
-
-
-
-
-
-
-
-
-
-
-
